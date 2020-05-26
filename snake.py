@@ -6,10 +6,11 @@ redColour = pygame.Color(255,0,0)
 blackColour = pygame.Color(0,0,0)
 whiteColour = pygame.Color(255,255,255)
 greyColour = pygame.Color(150,150,150)
+blueColour = pygame.Color(150,255,255)
 
 # 定義gameOver函數
 def gameOver(playSurface):
-    gameOverFont = pygame.font.Font('arial.ttf',72)
+    gameOverFont = pygame.font.SysFont("", 72)
     gameOverSurf = gameOverFont.render('Game Over', True, greyColour)
     gameOverRect = gameOverSurf.get_rect()
     gameOverRect.midtop = (320, 10)
@@ -31,7 +32,7 @@ def main():
     # 初始化變數
     snakePosition = [100,100]
     snakeSegments = [[100,100],[80,100],[60,100]]
-    raspberryPosition = [300,300]
+    raspberryPosition = [280,100]
     raspberrySpawned = 1
     direction = 'right'
     changeDirection = direction
@@ -88,7 +89,7 @@ def main():
         playSurface.fill(blackColour)
         for position in snakeSegments:
             pygame.draw.rect(playSurface,whiteColour,Rect(position[0],position[1],20,20))
-            pygame.draw.rect(playSurface,redColour,Rect(raspberryPosition[0], raspberryPosition[1],20,20))
+            pygame.draw.rect(playSurface,blueColour,Rect(raspberryPosition[0], raspberryPosition[1],20,20))
 
         # 刷新pygame顯示層
         pygame.display.flip()
